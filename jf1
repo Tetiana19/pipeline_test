@@ -2,8 +2,9 @@ pipeline {
     agent { 
         label 'master'
         }
-      docker {
-      image 'python:3.5.1'
+         stages {
+        stage("docker run") {
+      docker run python:3.5.1
       }
     stages {
         stage('build') {
