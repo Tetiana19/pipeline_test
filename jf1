@@ -6,6 +6,7 @@ pipeline {
         stage("docker run") {
       docker run python
       }
+     }
     stages {
         stage('build') {
             steps {
