@@ -3,7 +3,7 @@ pipeline {
         label 'master'
         }
          stages {
-        stage("docker run") {
+        stage('docker run') {
       docker run python
       }
      }
