@@ -10,6 +10,16 @@ pipeline { // определение декларативного pipeline
     }
  
   stages { // содержит стейджи сборки
+  
+        stage('Git checkout') {       
+            steps {
+                git credentialsId: 'githubssh2',
+                    branch: 'main',
+                    url: 'git@github.com:Tetiana19/final-project.git'
+        }
+    }
+  
+  
       stage("Hello") { // отдельный стейдж сборки
           steps { // набор шагов в рамках стейджа
               echo "Hello work" // один из шагов сборки
@@ -25,7 +35,7 @@ pipeline { // определение декларативного pipeline
   
    stage("tomcat") { // отдельный стейдж сборки
           steps { // набор шагов в рамках стейджа
-              sh "docker run -it --rm -p 8888:8080 tomcat"
+              
           }
       }
   
