@@ -1,10 +1,27 @@
-pipeline {
-    agent { docker { image 'python:3.5.1' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
-            }
+pipeline { // определение декларативного pipeline
+  agent { 
+        label 'master'
         }
+    triggers { pollSCM('* * * * *') }
+    
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+        timestamps()
     }
+ 
+  stages { // содержит стейджи сборки
+      stage("Stage name") { // отдельный стейдж сборки
+          steps { // набор шагов в рамках стейджа
+              echo "Hello work" // один из шагов сборки
+          }
+      }
+  
+  
+        stage("Stage name2") { // отдельный стейдж сборки
+          steps { // набор шагов в рамках стейджа
+              echo "Hello world" // один из шагов сборки
+          }
+      }
+  
+  }
 }
