@@ -4,7 +4,7 @@ pipeline {
         }
         stages {
         stage('docker run') {
-      docker run python
+      sudo docker run python
       }
      
      stage('build') {
