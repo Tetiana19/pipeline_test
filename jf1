@@ -2,15 +2,14 @@ pipeline {
     agent { 
         label 'master'
         }
-        stages {
-        stage("docker run") {
+                stage("docker run") {
       docker run python
       }
      
      stage("build") {
             steps {
                 sh 'python --version'
-            }
+            
         }
     }
 }
