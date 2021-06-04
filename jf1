@@ -10,14 +10,14 @@ pipeline { // определение декларативного pipeline
     }
  
   stages { // содержит стейджи сборки
-      stage("Stage name") { // отдельный стейдж сборки
+      stage("Hello") { // отдельный стейдж сборки
           steps { // набор шагов в рамках стейджа
               echo "Hello work" // один из шагов сборки
           }
       }
   
   
-        stage("Stage name2") { // отдельный стейдж сборки
+        stage("Hello Docker") { // отдельный стейдж сборки
           steps { // набор шагов в рамках стейджа
               sh "docker run hello-world"
           }
