@@ -1,5 +1,8 @@
 pipeline { // определение декларативного pipeline
-  agent any // определяет, на каком агенте будет запущена сборка
+  agent { 
+        label 'master'
+        }
+    triggers { pollSCM('* * * * *') }
  
   stages { // содержит стейджи сборки
       stage("Stage name") { // отдельный стейдж сборки
