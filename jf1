@@ -10,8 +10,7 @@ pipeline { // определение декларативного pipeline
     }
  
   stages { // содержит стейджи сборки
-  
-        stage('Git checkout') {       
+          stage('Git checkout') {       
             steps {
                 git credentialsId: 'githubssh2',
                     branch: 'main',
@@ -32,12 +31,5 @@ pipeline { // определение декларативного pipeline
               sh "docker run hello-world"
           }
       }
-  
-   stage("tomcat") { // отдельный стейдж сборки
-          steps { // набор шагов в рамках стейджа
-              
-          }
-      }
-  
-  }
+    }
 }
