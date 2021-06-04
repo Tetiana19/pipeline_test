@@ -1,5 +1,12 @@
 pipeline {
     agent { docker { image 'python:3.7' } }
+    
+    triggers { pollSCM('* * * * *') }
+    
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+        timestamps()
+    }
 
     stages {
         stage('1-Build') {
