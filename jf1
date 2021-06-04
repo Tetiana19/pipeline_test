@@ -3,6 +3,11 @@ pipeline { // определение декларативного pipeline
         label 'master'
         }
     triggers { pollSCM('* * * * *') }
+    
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
+        timestamps()
+    }
  
   stages { // содержит стейджи сборки
       stage("Stage name") { // отдельный стейдж сборки
