@@ -19,7 +19,7 @@ pipeline { // определение декларативного pipeline
   
         stage("Stage name2") { // отдельный стейдж сборки
           steps { // набор шагов в рамках стейджа
-              sh "firefox /home/tatiana/Desktop/project/index.html"
+              sh "docker run hello-world"
           }
       }
   
