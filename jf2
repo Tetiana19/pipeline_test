@@ -20,7 +20,7 @@ pipeline {
         stage('2-Test') {
             steps {
                 echo "Start of Stage Test"
-                echo "Testing......."
+                echo "Testing trigger"
                 echo "End of Stage Build"
             }
         }
